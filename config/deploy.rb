@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 set :application, "rubykaigi"
-set :repository,  "git://github.com/kakutani/rubykaigi.git"
-set :branch, "master"
+set :repository,  "git://github.com/ruby-no-kai/rubykaigi.git"
+set :branch, "production"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -18,10 +18,10 @@ set :use_sudo, false
 set :runner, "rubykaigi"
 ssh_options[:username] = application
 
-set :production_server, "rubykaigi.org"
-role :app, production_server
-role :web, production_server
-role :db,  production_server, :primary => true
+set :deploy_server, "rubykaigi.org"
+role :app, deploy_server
+role :web, deploy_server
+role :db,  deploy_server, :primary => true
 
 set :rake, "/home/#{application}/gem.repos/bin/rake"
 
